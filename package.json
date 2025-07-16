@@ -1,0 +1,22 @@
+{
+  "name": "ynk-studios-website",
+  "version": "1.0.0",
+  "description": "YNK Studios - Premier Multimedia Production Company",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["multimedia", "production", "video", "photography"],
+  "author": "YNK Studios",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "compression": "^1.7.4",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.7.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+} 

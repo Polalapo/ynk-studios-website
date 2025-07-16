@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YNK Studios - Premier Multimedia Production Company</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Background Elements -->
+        <div class="bg-elements">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="logo-text">YNK</span>
+                    <span class="logo-subtitle">STUDIOS</span>
+                </div>
+            </div>
+            
+            <h1 class="welcome-title">Welcome to YNK Studios</h1>
+            <p class="subtitle">Premier Multimedia Production Company</p>
+            
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="exploreServices()">Explore Our Services</button>
+                <button class="btn btn-tertiary" onclick="findStudios()">Find Our Studios</button>
+            </div>
+        </main>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@underworra" target="_blank" class="social-icon youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/ynk_studio_/?hl=en" target="_blank" class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <!-- Pricing Modal -->
+        <div id="pricingModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Our Professional Services</h2>
+                    <span class="close" onclick="closePricingModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p class="services-intro">Comprehensive multimedia solutions tailored to bring your creative vision to life with cutting-edge technology and artistic excellence.</p>
+                    
+                    <div class="services-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" onclick="showTab('video')">🎥 Video</button>
+                            <button class="tab-btn" onclick="showTab('photo')">📸 Photo</button>
+                            <button class="tab-btn" onclick="showTab('audio')">🎧 Audio</button>
+                            <button class="tab-btn" onclick="showTab('drone')">🛸 Drone</button>
+                            <button class="tab-btn" onclick="showTab('graphics')">🎨 Graphics</button>
+                            <button class="tab-btn" onclick="showTab('web')">🌐 Web Dev</button>
+                            <button class="tab-btn" onclick="showTab('software')">💻 Software</button>
+                            <button class="tab-btn" onclick="showTab('marketing')">📲 Marketing</button>
+                        </div>
+
+                        <!-- Video Tab -->
+                        <div class="tab-content active" id="video-tab">
+                            <h3>🎥 Videography</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>📱 Basic Social Media Video (up to 1 min)</h4>
+                                    <div class="price">💵 $95 | €90 | 107,000 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Short-form edit with transitions, audio, branding</p>
+                                    <p>💡 Optimized for reels, TikTok, shorts</p>
+                                    <p>➕ Captions or overlays included</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🏢 Corporate Promo Video</h4>
+                                    <div class="price">💵 $225 | €210 | 256,500 RWF</div>
+                                    <div class="details">🕒 7 days | 🔁 2 revisions | 🧩 Tier: Agency</div>
+                                    <p>📄 On-location shooting + editing (voiceover optional)</p>
+                                    <p>💡 Ideal for websites, company intros</p>
+                                    <p>➕ Includes motion titles and logo reveal</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🎬 Event Video Coverage (half-day)</h4>
+                                    <div class="price">💵 $160 | €150 | 190,000 RWF</div>
+                                    <div class="details">🕒 Delivery in 5 days | 🔁 1 revision | 🧩 Tier: Studio</div>
+                                    <p>📄 Cinematic cut of event highlights (1–3 min)</p>
+                                    <p>💡 Recap for social or promo</p>
+                                    <p>➕ Drone shots optional (extra)</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📽 Short-form Reel Editing</h4>
+                                    <div class="price">💵 $55 | €50 | 61,000 RWF</div>
+                                    <div class="details">🕒 2 days | 🔁 1 revision | 🧩 Tier: Starter</div>
+                                    <p>📄 Edit from raw footage with music sync</p>
+                                    <p>💡 Perfect for fast-paced engagement content</p>
+                                    <p>➕ Text & transitions included</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Photo Tab -->
+                        <div class="tab-content" id="photo-tab">
+                            <h3>📸 Photography</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>📦 Product Photography (5 items)</h4>
+                                    <div class="price">💵 $90 | €85 | 104,000 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 High-res photos on clean or styled background</p>
+                                    <p>💡 E-commerce, catalogs, packaging</p>
+                                    <p>➕ Includes basic retouching</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>👤 Portrait / Branding Shoot</h4>
+                                    <div class="price">💵 $95 | €90 | 107,000 RWF</div>
+                                    <div class="details">🕒 2–4 days | 🔁 1 retouch cycle | 🧩 Tier: Studio</div>
+                                    <p>📄 On-location or studio, 5 edited shots</p>
+                                    <p>💡 Personal brand or professional headshots</p>
+                                    <p>➕ Option for outfit changes</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📸 Event Photography (Half-day)</h4>
+                                    <div class="price">💵 $125 | €120 | 142,500 RWF</div>
+                                    <div class="details">🕒 4 days | 🔁 1 revision | 🧩 Tier: Studio</div>
+                                    <p>📄 3 hours of coverage, edited selection</p>
+                                    <p>💡 Ceremonies, launches, or parties</p>
+                                    <p>➕ Online delivery gallery</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📷 Social Media Mini-Shoot</h4>
+                                    <div class="price">💵 $55 | €50 | 61,000 RWF</div>
+                                    <div class="details">🕒 2 days | 🔁 No revision | 🧩 Tier: Starter</div>
+                                    <p>📄 Quick lifestyle shoot (3 edited photos)</p>
+                                    <p>💡 Great for creators, influencers</p>
+                                    <p>➕ Delivered in mobile & web sizes</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Audio Tab -->
+                        <div class="tab-content" id="audio-tab">
+                            <h3>🎧 Audio Production</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>🎙 Voice-Over Recording (up to 60s)</h4>
+                                    <div class="price">💵 $65 | €60 | 75,000 RWF</div>
+                                    <div class="details">🕒 2 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Voice-over in studio or remotely, delivered in WAV/MP3</p>
+                                    <p>💡 Ideal for ads, intros, explainers</p>
+                                    <p>➕ Background music option available</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🎛 Podcast Editing (up to 30 min)</h4>
+                                    <div class="price">💵 $90 | €85 | 104,000 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Includes EQ, compression, cuts, and clean-ups</p>
+                                    <p>💡 Enhances clarity & flow</p>
+                                    <p>➕ Monthly plan available (see subscriptions)</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🎚 Music Track Mixing & Mastering</h4>
+                                    <div class="price">💵 $145 | €135 | 166,500 RWF</div>
+                                    <div class="details">🕒 5 days | 🔁 2 revisions | 🧩 Tier: Studio</div>
+                                    <p>📄 Stereo mix + mastered version for streaming</p>
+                                    <p>💡 Balanced, loud, industry-ready audio</p>
+                                    <p>➕ Optional stems delivery</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🔔 Jingle or Intro Sound Design</h4>
+                                    <div class="price">💵 $80 | €75 | 90,000 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 3–10 sec custom jingle for branding</p>
+                                    <p>💡 Catchy, tailored sonic ID</p>
+                                    <p>➕ Can include voice and FX layers</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Drone Tab -->
+                        <div class="tab-content" id="drone-tab">
+                            <h3>🛸 Drone Services</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>🛰 Aerial Photo Pack (5 shots)</h4>
+                                    <div class="price">💵 $85 | €80 | 95,000 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Edited aerial shots for real estate or events</p>
+                                    <p>💡 High-angle, bird's eye views</p>
+                                    <p>➕ Licensed drone pilot</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🎥 Drone Video Clip (30 sec)</h4>
+                                    <div class="price">💵 $105 | €100 | 123,500 RWF</div>
+                                    <div class="details">🕒 3–4 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Dynamic drone video cut with music</p>
+                                    <p>💡 Perfect for intros or venue tours</p>
+                                    <p>➕ Stabilized 4K footage</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>👨‍✈️ Drone Operator Hire (per hour)</h4>
+                                    <div class="price">💵 $75 | €70 | 85,500 RWF</div>
+                                    <div class="details">🕒 Booking slot | 🔁 N/A | 🧩 Tier: Agency</div>
+                                    <p>📄 On-demand aerial video or photo capture</p>
+                                    <p>💡 Ideal for construction, mapping, events</p>
+                                    <p>➕ Post-editing available on request</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Graphics Tab -->
+                        <div class="tab-content" id="graphics-tab">
+                            <h3>🎨 Graphics</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>🔶 Logo Design (3 concepts)</h4>
+                                    <div class="price">💵 $125 | €120 | 142,500 RWF</div>
+                                    <div class="details">🕒 4–5 days | 🔁 2 revisions | 🧩 Tier: Studio</div>
+                                    <p>📄 Vector logo set (PNG, SVG, PDF)</p>
+                                    <p>💡 Suited for professional identity and brand launch</p>
+                                    <p>➕ Includes mono & full-color versions</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📇 Business Card or Flyer Design</h4>
+                                    <div class="price">💵 $55 | €50 | 61,000 RWF</div>
+                                    <div class="details">🕒 2 days | 🔁 1 revision | 🧩 Tier: Starter</div>
+                                    <p>📄 Print-ready CMYK files + digital share version</p>
+                                    <p>💡 Great for events, launches, and networking</p>
+                                    <p>➕ Double-sided layout available</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📱 Social Media Graphic Set (3 posts)</h4>
+                                    <div class="price">💵 $60 | €55 | 66,500 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Instagram/Facebook optimized designs</p>
+                                    <p>💡 Visual consistency with your brand palette</p>
+                                    <p>➕ Canva editable template optional</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📘 Brand Guideline Mini Kit</h4>
+                                    <div class="price">💵 $145 | €135 | 166,500 RWF</div>
+                                    <div class="details">🕒 5–6 days | 🔁 1 revision | 🧩 Tier: Studio</div>
+                                    <p>📄 Includes logo rules, fonts, colors, sample layouts</p>
+                                    <p>💡 Ensures visual consistency across all assets</p>
+                                    <p>➕ Delivered as a PDF manual</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Web Development Tab -->
+                        <div class="tab-content" id="web-tab">
+                            <h3>🌐 Web Development</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>📄 Landing Page (1 scroll section)</h4>
+                                    <div class="price">💵 $125 | €120 | 142,500 RWF</div>
+                                    <div class="details">🕒 5 days | 🔁 2 revisions | 🧩 Tier: Pro</div>
+                                    <p>📄 Fully responsive, mobile-first, animated CTA</p>
+                                    <p>💡 Perfect for product launches or lead capture</p>
+                                    <p>➕ Includes basic contact form</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🖥 Full Website (4–6 pages)</h4>
+                                    <div class="price">💵 $345 | €325 | 395,000 RWF</div>
+                                    <div class="details">🕒 10–14 days | 🔁 2 revisions | 🧩 Tier: Agency</div>
+                                    <p>📄 WordPress/Wix/Framer site + design</p>
+                                    <p>💡 Covers home, about, services, contact, legal</p>
+                                    <p>➕ Admin training session optional</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🛒 E-commerce Setup (up to 10 products)</h4>
+                                    <div class="price">💵 $225 | €210 | 256,500 RWF</div>
+                                    <div class="details">🕒 8 days | 🔁 2 revisions | 🧩 Tier: Agency</div>
+                                    <p>📄 Online store setup with cart, shipping, and payment</p>
+                                    <p>💡 Includes product photos, copy insertion</p>
+                                    <p>➕ Secure checkout & responsive layout</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Software Development Tab -->
+                        <div class="tab-content" id="software-tab">
+                            <h3>💻 Software Development</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>📱 Custom App Prototype (No-Code)</h4>
+                                    <div class="price">💵 $195 | €185 | 222,500 RWF</div>
+                                    <div class="details">🕒 7 days | 🔁 1 revision | 🧩 Tier: Studio</div>
+                                    <p>📄 Interactive app prototype (Bubble, Glide, etc.)</p>
+                                    <p>💡 Ideal for MVPs or demo pitching</p>
+                                    <p>➕ Video walkthrough included</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🔄 Backend Automation Script</h4>
+                                    <div class="price">💵 $90 | €85 | 104,000 RWF</div>
+                                    <div class="details">🕒 3–4 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Python/JavaScript task automation for workflows</p>
+                                    <p>💡 Simplifies repetitive processes</p>
+                                    <p>➕ Includes setup instructions</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🗃 Database Design (Schema + Setup)</h4>
+                                    <div class="price">💵 $75 | €70 | 85,500 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 ER diagram + working SQL or NoSQL DB</p>
+                                    <p>💡 For app or CMS infrastructure</p>
+                                    <p>➕ Documentation included</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🔗 API Integration (1 system)</h4>
+                                    <div class="price">💵 $95 | €90 | 107,000 RWF</div>
+                                    <div class="details">🕒 4 days | 🔁 1 revision | 🧩 Tier: Studio</div>
+                                    <p>📄 Connects app to service (e.g., Stripe, GPT, Mailchimp)</p>
+                                    <p>💡 Adds external functionalities</p>
+                                    <p>➕ Logs + error handling built-in</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Digital Marketing Tab -->
+                        <div class="tab-content" id="marketing-tab">
+                            <h3>📲 Digital Marketing</h3>
+                            <div class="pricing-grid">
+                                <div class="pricing-item">
+                                    <h4>📆 Social Media Management (per week)</h4>
+                                    <div class="price">💵 $105 | €100 | 123,500 RWF</div>
+                                    <div class="details">🕒 Ongoing | 🔁 Strategy call monthly | 🧩 Tier: Subscription</div>
+                                    <p>📄 3–5 posts, hashtags, captions, publishing</p>
+                                    <p>💡 Includes 1 engagement report/month</p>
+                                    <p>➕ Works across IG/FB/TikTok/LinkedIn</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📊 Ad Campaign Setup (Google/Facebook)</h4>
+                                    <div class="price">💵 $95 | €90 | 107,000 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Ad creatives + targeting + copy</p>
+                                    <p>💡 Launch-ready for Meta/Google Ads</p>
+                                    <p>➕ Budget advisory included</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>📧 Email Marketing Flow (3 emails)</h4>
+                                    <div class="price">💵 $75 | €70 | 85,500 RWF</div>
+                                    <div class="details">🕒 3 days | 🔁 1 revision | 🧩 Tier: Pro</div>
+                                    <p>📄 Automated flow for onboarding or launch</p>
+                                    <p>💡 Designed + written for conversions</p>
+                                    <p>➕ Optional integration with Mailchimp, Brevo</p>
+                                </div>
+                                <div class="pricing-item">
+                                    <h4>🔍 SEO Optimization (basic)</h4>
+                                    <div class="price">💵 $85 | €80 | 95,000 RWF</div>
+                                    <div class="details">🕒 4 days | 🔁 1 round | 🧩 Tier: Pro</div>
+                                    <p>📄 On-page SEO (titles, meta, alt tags)</p>
+                                    <p>💡 Improves rank & readability</p>
+                                    <p>➕ Includes SEO audit of up to 5 pages</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> KG 313 St, Kibagabaga, Kigali, Rwanda</p>
+                        <p><i class="fas fa-envelope"></i> Ynkstudio.uw@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +250784950661</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locations Modal -->
+        <div id="locationsModal" class="modal">
+            <div class="modal-content locations-modal">
+                <div class="modal-header">
+                    <h2>🏢 Find Your Nearest YNK Studio</h2>
+                    <span class="close" onclick="closeLocationsModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p class="locations-intro">Connect with our creative teams in Rwanda and Belgium!</p>
+                    
+                    <!-- Map Section -->
+                    <div class="map-section">
+                        <h3>🗺️ Our Global Presence</h3>
+                        <div class="map-container">
+                            <div id="locations-map"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Studio Cards -->
+                    <div class="studio-cards">
+                        <!-- Kigali Studio -->
+                        <div class="studio-card" data-studio="kigali">
+                            <div class="studio-header">
+                                <div class="studio-flag">🇷🇼</div>
+                                <div class="studio-info">
+                                    <h4>Kigali Studio</h4>
+                                    <p>Main Operations Hub</p>
+                                </div>
+                            </div>
+                            
+                            <div class="studio-details">
+                                <div class="studio-detail">
+                                    <span>📍</span>
+                                    <span>KG 313 St, Kibagabaga</span>
+                                </div>
+                                <div class="studio-detail">
+                                    <span>📞</span>
+                                    <span>+250 784 950 661</span>
+                                </div>
+                                <div class="studio-detail">
+                                    <span>🎯</span>
+                                    <span>Equipment Rentals Available</span>
+                                </div>
+                            </div>
+                            
+                            <div class="studio-actions">
+                                <a href="tel:+250784950661" class="studio-btn studio-btn-primary">
+                                    📞 Call
+                                </a>
+                                <a href="mailto:Ynkstudio.uw@gmail.com?subject=Inquiry from Kigali Studio" class="studio-btn studio-btn-secondary">
+                                    📧 Email
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Belgium Studio -->
+                        <div class="studio-card" data-studio="belgium">
+                            <div class="studio-header">
+                                <div class="studio-flag">🇧🇪</div>
+                                <div class="studio-info">
+                                    <h4>Belgium Studio</h4>
+                                    <p>European Operations</p>
+                                </div>
+                            </div>
+                            
+                            <div class="studio-details">
+                                <div class="studio-detail">
+                                    <span>📍</span>
+                                    <span>Oudebaan 106, Bierbeek</span>
+                                </div>
+                                <div class="studio-detail">
+                                    <span>📞</span>
+                                    <span>+32 456 930 766</span>
+                                </div>
+                                <div class="studio-detail">
+                                    <span>🎯</span>
+                                    <span>International Projects</span>
+                                </div>
+                            </div>
+                            
+                            <div class="studio-actions">
+                                <a href="tel:+32456930766" class="studio-btn studio-btn-primary">
+                                    📞 Call
+                                </a>
+                                <a href="mailto:Ynkstudio.uw@gmail.com?subject=Inquiry from Belgium Studio" class="studio-btn studio-btn-secondary">
+                                    📧 Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Modal Overlay -->
+        <div id="chatOverlay" class="chat-overlay" onclick="closeChat()"></div>
+        
+        <!-- Enhanced Chat Bot -->
+        <div id="chatBot" class="chat-bot">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <div class="chat-avatar">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="chat-info">
+                        <span class="chat-name">INK AI Assistant</span>
+                        <span class="chat-status" id="chatStatus">Online • Powered by Grok 3</span>
+                    </div>
+                </div>
+                <div class="chat-controls">
+                    <button class="chat-control-btn" onclick="openChatSettings()" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="chat-control-btn" onclick="clearChat()" title="Clear Chat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="chat-control-btn" onclick="exportChat()" title="Export Chat">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="minimize-chat" onclick="minimizeChat()" title="Minimize">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="close-chat" onclick="closeChat()" title="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Chat Settings Panel -->
+            <div id="chatSettings" class="chat-settings">
+                <div class="settings-header">
+                    <h3>Chat Settings</h3>
+                    <button onclick="closeChatSettings()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="settings-content">
+                    <div class="setting-group">
+                        <label>Creativity Level:</label>
+                        <input type="range" id="temperatureSlider" min="0" max="1" step="0.1" value="0.7" onchange="updateTemperature()">
+                        <span id="temperatureValue">0.7</span>
+                    </div>
+                    <div class="setting-group">
+                        <label>Response Length:</label>
+                        <select id="maxTokens" onchange="updateMaxTokens()">
+                            <option value="300">Short (300 tokens)</option>
+                            <option value="500" selected>Medium (500 tokens)</option>
+                            <option value="1000">Long (1000 tokens)</option>
+                            <option value="2000">Extended (2000 tokens)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-conversation-info">
+                    <span id="messageCount">1 message</span>
+                    <span class="separator">•</span>
+                    <span id="tokenUsage">~50 tokens used</span>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="message-sender">INK AI</span>
+                                <span class="message-time" id="welcomeTime"></span>
+                            </div>
+                            <p>Hello! I'm INK AI, your intelligent assistant powered by Grok 3. I can help you with YNK Studios services, creative projects, technical questions, and much more. What can I assist you with today?</p>
+                            <div class="message-actions">
+                                <button class="msg-action-btn" onclick="copyMessage(this)" title="Copy">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="msg-action-btn" onclick="regenerateResponse(this)" title="Regenerate">
+                                    <i class="fas fa-redo"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-suggestions" id="chatSuggestions">
+                <div class="suggestion-pill" onclick="sendSuggestion('Tell me about YNK Studios services')">
+                    🎥 YNK Services
+                </div>
+                <div class="suggestion-pill" onclick="sendSuggestion('What are your pricing options?')">
+                    💰 Pricing Info
+                </div>
+                <div class="suggestion-pill" onclick="sendSuggestion('Help me plan a creative project')">
+                    🎨 Project Planning
+                </div>
+                <div class="suggestion-pill" onclick="sendSuggestion('Show me your latest work')">
+                    🏆 Portfolio
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <div class="chat-input">
+                    <div class="input-tools">
+                        <button class="input-tool-btn" onclick="toggleVoiceInput()" title="Voice Input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="input-tool-btn" onclick="attachFile()" title="Attach File">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                    </div>
+                    <textarea id="chatInput" placeholder="Type your message... (Shift+Enter for new line)" 
+                             onkeypress="handleChatKeyPress(event)" 
+                             oninput="autoResizeInput()"
+                             rows="1"></textarea>
+                    <button class="send-btn" onclick="sendMessage()" id="sendButton" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-status">
+                    <span id="typingIndicator" class="typing-indicator">AI is typing...</span>
+                    <span id="characterCount" class="character-count">0/2000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Chat Button -->
+        <div class="ai-chat-button" onclick="toggleChat()">
+            <span class="chat-text">Chat with INK AI</span>
+            <div class="chat-notification" id="chatNotification">1</div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Full Screen Video Section -->
+    <section class="section-2-video">
+        <div class="video-background">
+            <iframe 
+                src="https://www.youtube.com/embed/e4i3jkZOvMI?autoplay=1&mute=1&loop=1&playlist=e4i3jkZOvMI&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&enablejsapi=0&origin=https://yoursite.com&widget_referrer=https://yoursite.com&playsinline=1&start=0&end=9999&color=white&autohide=1" 
+                title="YNK Studios Section 2 Video"
+                frameborder="0" 
+                style="pointer-events: none;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
